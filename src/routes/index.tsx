@@ -676,9 +676,16 @@ function Footer() {
         <div className="md:col-span-4">
           <div className="text-[0.62rem] uppercase tracking-[0.22em] text-gold mb-4">Navigate</div>
           <ul className="grid grid-cols-2 gap-2 text-sm">
-            {["About", "Founder", "Strategy", "Properties", "Process", "Contact"].map((l) => (
-              <li key={l}>
-                <a href={`#${l.toLowerCase()}`} className="hover:text-gold transition-colors">{l}</a>
+            {[
+              ["About", "about"],
+              ["Founder", "founder"],
+              ["Strategy", "strategy"],
+              ["Properties", "portfolio"],
+              ["Process", "process"],
+              ["Contact", "contact"],
+            ].map(([l, h]) => (
+              <li key={h}>
+                <a href={`#${h}`} className="hover:text-gold transition-colors">{l}</a>
               </li>
             ))}
           </ul>
