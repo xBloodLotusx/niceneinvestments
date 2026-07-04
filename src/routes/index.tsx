@@ -258,14 +258,16 @@ function Founder() {
         <div className="lg:col-span-5">
           <div className="relative">
             <div className="absolute -inset-3 border border-gold/60" aria-hidden />
-            <img
-              src={founderPortrait}
-              alt="Yonnic Land, Founder of Nicene Investments"
-              width={1024}
-              height={1024}
-              loading="lazy"
-              className="relative w-full object-cover aspect-[4/5] grayscale-[15%]"
-            />
+            <div
+              role="img"
+              aria-label="Portrait placeholder for Yonnic Land"
+              className="relative w-full aspect-[4/5] bg-secondary border border-border flex flex-col items-center justify-center text-charcoal/40"
+            >
+              <User className="h-24 w-24" strokeWidth={1} />
+              <span className="mt-4 eyebrow text-[0.62rem] text-charcoal/50">
+                Portrait Coming Soon
+              </span>
+            </div>
           </div>
         </div>
         <div className="lg:col-span-7">
