@@ -138,16 +138,29 @@ function Mark() {
 
 function Hero() {
   return (
-    <section id="top" className="relative min-h-[100svh] flex items-end overflow-hidden">
-      <img
-        src={heroAerial}
-        alt="Aerial view of a modern multifamily community at twilight"
-        width={1920}
-        height={1280}
-        className="absolute inset-0 h-full w-full object-cover"
+    <section
+      id="top"
+      className="relative min-h-[100svh] flex items-end overflow-hidden bg-charcoal text-ivory"
+    >
+      {/* Decorative background — no photography */}
+      <div
+        aria-hidden
+        className="absolute inset-0 opacity-[0.07]"
+        style={{
+          backgroundImage:
+            "linear-gradient(to right, rgba(255,255,255,0.6) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.6) 1px, transparent 1px)",
+          backgroundSize: "80px 80px",
+        }}
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/70 to-charcoal/30" />
-      <div className="absolute inset-0 bg-gradient-to-r from-charcoal/80 via-transparent to-transparent" />
+      <div
+        aria-hidden
+        className="absolute -top-40 -right-40 h-[520px] w-[520px] rounded-full bg-primary/25 blur-3xl"
+      />
+      <div
+        aria-hidden
+        className="absolute -bottom-40 -left-40 h-[520px] w-[520px] rounded-full bg-gold/15 blur-3xl"
+      />
+      <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-charcoal to-transparent" />
 
       <div className="container-x relative z-10 pb-20 md:pb-28 pt-40 max-w-4xl">
         <p className="eyebrow text-gold">
