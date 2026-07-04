@@ -13,12 +13,9 @@ import {
   Mail,
   Phone,
   ChevronRight,
+  User,
+  ExternalLink,
 } from "lucide-react";
-import heroAerial from "@/assets/hero-aerial.jpg";
-import founderPortrait from "@/assets/founder.jpg";
-import property1 from "@/assets/property-1.jpg";
-import property2 from "@/assets/property-2.jpg";
-import property3 from "@/assets/property-3.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -67,7 +64,7 @@ function Nav() {
     ["About", "#about"],
     ["Founder", "#founder"],
     ["Strategy", "#strategy"],
-    ["Portfolio", "#portfolio"],
+    ["Properties", "#portfolio"],
     ["Process", "#process"],
     ["Contact", "#contact"],
   ];
@@ -141,16 +138,29 @@ function Mark() {
 
 function Hero() {
   return (
-    <section id="top" className="relative min-h-[100svh] flex items-end overflow-hidden">
-      <img
-        src={heroAerial}
-        alt="Aerial view of a modern multifamily community at twilight"
-        width={1920}
-        height={1280}
-        className="absolute inset-0 h-full w-full object-cover"
+    <section
+      id="top"
+      className="relative min-h-[100svh] flex items-end overflow-hidden bg-charcoal text-ivory"
+    >
+      {/* Decorative background — no photography */}
+      <div
+        aria-hidden
+        className="absolute inset-0 opacity-[0.07]"
+        style={{
+          backgroundImage:
+            "linear-gradient(to right, rgba(255,255,255,0.6) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.6) 1px, transparent 1px)",
+          backgroundSize: "80px 80px",
+        }}
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/70 to-charcoal/30" />
-      <div className="absolute inset-0 bg-gradient-to-r from-charcoal/80 via-transparent to-transparent" />
+      <div
+        aria-hidden
+        className="absolute -top-40 -right-40 h-[520px] w-[520px] rounded-full bg-primary/25 blur-3xl"
+      />
+      <div
+        aria-hidden
+        className="absolute -bottom-40 -left-40 h-[520px] w-[520px] rounded-full bg-gold/15 blur-3xl"
+      />
+      <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-charcoal to-transparent" />
 
       <div className="container-x relative z-10 pb-20 md:pb-28 pt-40 max-w-4xl">
         <p className="eyebrow text-gold">
@@ -248,14 +258,16 @@ function Founder() {
         <div className="lg:col-span-5">
           <div className="relative">
             <div className="absolute -inset-3 border border-gold/60" aria-hidden />
-            <img
-              src={founderPortrait}
-              alt="Yonnic Land, Founder of Nicene Investments"
-              width={1024}
-              height={1024}
-              loading="lazy"
-              className="relative w-full object-cover aspect-[4/5] grayscale-[15%]"
-            />
+            <div
+              role="img"
+              aria-label="Portrait placeholder for Yonnic Land"
+              className="relative w-full aspect-[4/5] bg-secondary border border-border flex flex-col items-center justify-center text-charcoal/40"
+            >
+              <User className="h-24 w-24" strokeWidth={1} />
+              <span className="mt-4 eyebrow text-[0.62rem] text-charcoal/50">
+                Portrait Coming Soon
+              </span>
+            </div>
           </div>
         </div>
         <div className="lg:col-span-7">
@@ -360,42 +372,21 @@ function Strategy() {
   );
 }
 
-/* ---------------- PORTFOLIO ---------------- */
+/* ---------------- PROPERTIES ---------------- */
 
 function Portfolio() {
-  const projects = [
+  const properties = [
     {
-      img: property1,
-      name: "The Marquette",
-      market: "Nashville, TN",
-      plan: "Interior renovations, amenity refresh, and operational repositioning of a 220-unit Class B community.",
+      name: "Heritage Apartments",
+      market: "Mt Pleasant, TX",
+      plan:
+        "A well-located multifamily community in Mt Pleasant, Texas — owned and operated by Nicene Investments with a focus on resident experience, thoughtful improvements, and long-term stewardship.",
       stats: [
-        ["Units", "220"],
-        ["Scope", "Interior + Amenity"],
-        ["Strategy", "Value-Add"],
+        ["Market", "Mt Pleasant, TX"],
+        ["Asset Type", "Multifamily"],
+        ["Status", "Owned & Operated"],
       ],
-    },
-    {
-      img: property2,
-      name: "Palmera Heights",
-      market: "Phoenix, AZ",
-      plan: "Stabilized acquisition with light-lift renovation, NOI growth through revenue management and expense controls.",
-      stats: [
-        ["Units", "184"],
-        ["Scope", "Light Value-Add"],
-        ["Strategy", "Core-Plus"],
-      ],
-    },
-    {
-      img: property3,
-      name: "Brickyard Commons",
-      market: "Charlotte, NC",
-      plan: "Workforce housing reposition focused on resident retention, occupancy lift, and targeted CapEx.",
-      stats: [
-        ["Units", "312"],
-        ["Scope", "Reposition"],
-        ["Strategy", "Value-Add"],
-      ],
+      url: "https://heritageapartmentsmtpleasant.com",
     },
   ];
   return (
@@ -403,31 +394,36 @@ function Portfolio() {
       <div className="container-x">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8">
           <div className="max-w-2xl">
-            <p className="eyebrow"><span className="gold-rule" />Representative Projects</p>
+            <p className="eyebrow"><span className="gold-rule" />Properties</p>
             <h2 className="mt-5 text-4xl md:text-5xl text-charcoal">
-              Disciplined deals in markets <em className="text-primary not-italic">that compound</em>.
+              Communities we <em className="text-primary not-italic">own and operate</em>.
             </h2>
           </div>
           <p className="text-sm text-charcoal/60 max-w-sm">
-            Representative project models. Projected returns generalized for illustrative
-            purposes and do not constitute an offer of securities.
+            Our growing portfolio of multifamily assets, actively managed for long-term value
+            and resident satisfaction.
           </p>
         </div>
 
-        <div className="mt-16 grid lg:grid-cols-3 gap-8">
-          {projects.map((p) => (
-            <article key={p.name} className="group bg-card border border-border flex flex-col">
-              <div className="relative overflow-hidden aspect-[4/3]">
-                <img
-                  src={p.img}
-                  alt={`${p.name} in ${p.market}`}
-                  width={1280}
-                  height={896}
-                  loading="lazy"
-                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+        <div className="mt-16 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {properties.map((p) => (
+            <article
+              key={p.name}
+              className="group bg-card border border-border flex flex-col"
+            >
+              <div className="relative overflow-hidden aspect-[4/3] bg-secondary flex items-center justify-center">
+                <div
+                  aria-hidden
+                  className="absolute inset-0 opacity-[0.08]"
+                  style={{
+                    backgroundImage:
+                      "linear-gradient(to right, rgba(0,0,0,0.6) 1px, transparent 1px), linear-gradient(to bottom, rgba(0,0,0,0.6) 1px, transparent 1px)",
+                    backgroundSize: "40px 40px",
+                  }}
                 />
+                <Building2 className="relative h-20 w-20 text-primary/60" strokeWidth={1} />
                 <span className="absolute top-4 left-4 bg-primary text-primary-foreground text-[0.62rem] tracking-[0.18em] uppercase font-semibold px-3 py-1.5">
-                  Representative
+                  Owned
                 </span>
               </div>
               <div className="p-7 flex-1 flex flex-col">
@@ -443,10 +439,20 @@ function Portfolio() {
                       <dt className="text-[0.62rem] uppercase tracking-[0.16em] text-charcoal/50">
                         {k}
                       </dt>
-                      <dd className="mt-1 font-display text-charcoal text-base">{v}</dd>
+                      <dd className="mt-1 font-display text-charcoal text-sm">{v}</dd>
                     </div>
                   ))}
                 </dl>
+                <div className="mt-8 pt-6 border-t border-border">
+                  <a
+                    href={p.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-primary w-full justify-center"
+                  >
+                    Visit Property <ExternalLink className="h-4 w-4" />
+                  </a>
+                </div>
               </div>
             </article>
           ))}
@@ -670,9 +676,16 @@ function Footer() {
         <div className="md:col-span-4">
           <div className="text-[0.62rem] uppercase tracking-[0.22em] text-gold mb-4">Navigate</div>
           <ul className="grid grid-cols-2 gap-2 text-sm">
-            {["About", "Founder", "Strategy", "Portfolio", "Process", "Contact"].map((l) => (
-              <li key={l}>
-                <a href={`#${l.toLowerCase()}`} className="hover:text-gold transition-colors">{l}</a>
+            {[
+              ["About", "about"],
+              ["Founder", "founder"],
+              ["Strategy", "strategy"],
+              ["Properties", "portfolio"],
+              ["Process", "process"],
+              ["Contact", "contact"],
+            ].map(([l, h]) => (
+              <li key={h}>
+                <a href={`#${h}`} className="hover:text-gold transition-colors">{l}</a>
               </li>
             ))}
           </ul>
