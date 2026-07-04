@@ -13,12 +13,9 @@ import {
   Mail,
   Phone,
   ChevronRight,
+  User,
+  ExternalLink,
 } from "lucide-react";
-import heroAerial from "@/assets/hero-aerial.jpg";
-import founderPortrait from "@/assets/founder.jpg";
-import property1 from "@/assets/property-1.jpg";
-import property2 from "@/assets/property-2.jpg";
-import property3 from "@/assets/property-3.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
