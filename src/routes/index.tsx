@@ -64,7 +64,7 @@ function Nav() {
     ["About", "#about"],
     ["Founder", "#founder"],
     ["Strategy", "#strategy"],
-    ["Portfolio", "#portfolio"],
+    ["Properties", "#portfolio"],
     ["Process", "#process"],
     ["Contact", "#contact"],
   ];
