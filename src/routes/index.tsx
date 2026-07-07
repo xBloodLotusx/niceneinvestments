@@ -127,7 +127,7 @@ function Mark() {
     <div className="relative h-10 w-10 shrink-0">
       <div className="absolute inset-0 border border-gold" />
       <div className="absolute inset-1.5 bg-primary flex items-center justify-center">
-        <span className="font-display text-ivory text-lg leading-none">N</span>
+        <span className="font-display text-gold text-base tracking-tight leading-none">NI</span>
       </div>
     </div>
   );
@@ -517,11 +517,6 @@ function Process() {
             </li>
           ))}
         </ol>
-        <div className="mt-14 flex justify-center">
-          <a href="#contact" className="btn-primary">
-            Join Our Investor List <ArrowRight className="h-4 w-4" />
-          </a>
-        </div>
       </div>
     </section>
   );
@@ -530,115 +525,35 @@ function Process() {
 /* ---------------- CONTACT ---------------- */
 
 function Contact() {
-  const [submitted, setSubmitted] = useState(false);
   return (
     <section id="contact" className="py-24 md:py-32 bg-charcoal text-ivory">
-      <div className="container-x grid lg:grid-cols-12 gap-12 lg:gap-20">
-        <div className="lg:col-span-5">
-          <p className="eyebrow text-gold"><span className="gold-rule" />Contact</p>
-          <h2 className="mt-5 text-4xl md:text-5xl text-ivory">
-            Request more <span className="italic text-gold">information</span>.
-          </h2>
-          <p className="mt-6 text-ivory/70 leading-relaxed">
-            Share a few details and a member of our team will be in touch to discuss current
-            opportunities and answer your questions.
-          </p>
-          <div className="mt-10 space-y-5">
-            <a href="mailto:invest@niceneinvestments.com" className="flex items-center gap-4 text-ivory/90 hover:text-gold transition-colors">
-              <span className="h-10 w-10 grid place-items-center border border-gold/60"><Mail className="h-4 w-4 text-gold" /></span>
-              <div>
-                <div className="text-[0.62rem] uppercase tracking-[0.2em] text-ivory/50">Email</div>
-                <div className="font-display text-lg">invest@niceneinvestments.com</div>
-              </div>
-            </a>
-            <a href="tel:+19729839051" className="flex items-center gap-4 text-ivory/90 hover:text-gold transition-colors">
-              <span className="h-10 w-10 grid place-items-center border border-gold/60"><Phone className="h-4 w-4 text-gold" /></span>
-              <div>
-                <div className="text-[0.62rem] uppercase tracking-[0.2em] text-ivory/50">Phone</div>
-                <div className="font-display text-lg">(972) 983-9051</div>
-              </div>
-            </a>
-          </div>
-        </div>
-
-        <form
-          onSubmit={(e) => {
-            e.preventDefault();
-            setSubmitted(true);
-          }}
-          className="lg:col-span-7 bg-ivory text-charcoal p-8 md:p-12 space-y-6"
-        >
-          {submitted ? (
-            <div className="py-16 text-center">
-              <div className="font-display text-3xl text-primary">Thank you.</div>
-              <p className="mt-4 text-charcoal/70 max-w-md mx-auto">
-                Your request has been received. A member of our team will reach out shortly.
-              </p>
+      <div className="container-x max-w-2xl">
+        <p className="eyebrow text-gold"><span className="gold-rule" />Contact</p>
+        <h2 className="mt-5 text-4xl md:text-5xl text-ivory">
+          Request more <span className="italic text-gold">information</span>.
+        </h2>
+        <p className="mt-6 text-ivory/70 leading-relaxed">
+          Reach out directly and a member of our team will be in touch to discuss current
+          opportunities and answer your questions.
+        </p>
+        <div className="mt-10 space-y-5">
+          <a href="mailto:invest@niceneinvestments.com" className="flex items-center gap-4 text-ivory/90 hover:text-gold transition-colors">
+            <span className="h-10 w-10 grid place-items-center border border-gold/60"><Mail className="h-4 w-4 text-gold" /></span>
+            <div>
+              <div className="text-[0.62rem] uppercase tracking-[0.2em] text-ivory/50">Email</div>
+              <div className="font-display text-lg">invest@niceneinvestments.com</div>
             </div>
-          ) : (
-            <>
-              <div className="grid sm:grid-cols-2 gap-6">
-                <Field label="First Name" name="firstName" required />
-                <Field label="Last Name" name="lastName" required />
-              </div>
-              <div className="grid sm:grid-cols-2 gap-6">
-                <Field label="Email" name="email" type="email" required />
-                <Field label="Phone" name="phone" type="tel" />
-              </div>
-              <Field label="Accredited Investor Status" name="accredited" placeholder="Accredited / Non-accredited / Unsure" />
-              <div>
-                <label className="block text-[0.62rem] uppercase tracking-[0.2em] text-charcoal/60 mb-2">
-                  Message
-                </label>
-                <textarea
-                  name="message"
-                  rows={4}
-                  className="w-full border border-border bg-background px-4 py-3 text-sm focus:outline-none focus:border-primary"
-                />
-              </div>
-              <button type="submit" className="btn-primary w-full sm:w-auto">
-                Request Information <ArrowRight className="h-4 w-4" />
-              </button>
-              <p className="text-xs text-charcoal/50 leading-relaxed">
-                By submitting, you consent to be contacted by Nicene Investments. We respect your
-                privacy and never share your information.
-              </p>
-            </>
-          )}
-        </form>
+          </a>
+          <a href="tel:+19729839051" className="flex items-center gap-4 text-ivory/90 hover:text-gold transition-colors">
+            <span className="h-10 w-10 grid place-items-center border border-gold/60"><Phone className="h-4 w-4 text-gold" /></span>
+            <div>
+              <div className="text-[0.62rem] uppercase tracking-[0.2em] text-ivory/50">Phone</div>
+              <div className="font-display text-lg">(972) 983-9051</div>
+            </div>
+          </a>
+        </div>
       </div>
     </section>
-  );
-}
-
-function Field({
-  label,
-  name,
-  type = "text",
-  required,
-  placeholder,
-}: {
-  label: string;
-  name: string;
-  type?: string;
-  required?: boolean;
-  placeholder?: string;
-}) {
-  return (
-    <div>
-      <label htmlFor={name} className="block text-[0.62rem] uppercase tracking-[0.2em] text-charcoal/60 mb-2">
-        {label}
-        {required && <span className="text-primary ml-1">*</span>}
-      </label>
-      <input
-        id={name}
-        name={name}
-        type={type}
-        required={required}
-        placeholder={placeholder}
-        className="w-full border border-border bg-background px-4 py-3 text-sm focus:outline-none focus:border-primary"
-      />
-    </div>
   );
 }
 
