@@ -189,8 +189,8 @@ function Hero() {
           {[
             ["Asset Class", "Multifamily"],
             ["Strategy", "Value-Add"],
-            ["Focus", "High-Growth Markets"],
-            ["Horizon", "Long-Term Hold"],
+            ["Focus", "Cash Flow"],
+            ["Horizon", "Mid to Long Term"],
           ].map(([k, v]) => (
             <div key={k}>
               <dt className="eyebrow text-gold/80 text-[0.62rem]">{k}</dt>
@@ -562,11 +562,11 @@ function Contact() {
                 <div className="font-display text-lg">invest@niceneinvestments.com</div>
               </div>
             </a>
-            <a href="tel:+15125550100" className="flex items-center gap-4 text-ivory/90 hover:text-gold transition-colors">
+            <a href="tel:+19729839051" className="flex items-center gap-4 text-ivory/90 hover:text-gold transition-colors">
               <span className="h-10 w-10 grid place-items-center border border-gold/60"><Phone className="h-4 w-4 text-gold" /></span>
               <div>
                 <div className="text-[0.62rem] uppercase tracking-[0.2em] text-ivory/50">Phone</div>
-                <div className="font-display text-lg">(512) 555-0100</div>
+                <div className="font-display text-lg">(972) 983-9051</div>
               </div>
             </a>
           </div>
