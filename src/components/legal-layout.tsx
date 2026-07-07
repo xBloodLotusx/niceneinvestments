@@ -6,7 +6,7 @@ function Mark() {
     <div className="relative h-10 w-10 shrink-0">
       <div className="absolute inset-0 border border-gold" />
       <div className="absolute inset-1.5 bg-primary flex items-center justify-center">
-        <span className="font-display text-ivory text-lg leading-none">N</span>
+        <span className="font-display text-ivory text-base tracking-tight leading-none">NI</span>
       </div>
     </div>
   );

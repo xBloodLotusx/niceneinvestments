@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   ArrowRight,
   Building2,
@@ -59,6 +59,7 @@ function Home() {
 
 function Nav() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const links = [
     ["About", "#about"],
     ["Founder", "#founder"],
@@ -67,8 +68,22 @@ function Nav() {
     ["Process", "#process"],
     ["Contact", "#contact"],
   ];
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <header className="absolute top-0 left-0 right-0 z-30">
+    <header
+      className={`fixed top-0 left-0 right-0 z-30 transition-colors ${
+        scrolled || open
+          ? "bg-charcoal/95 backdrop-blur border-b border-ivory/10"
+          : "bg-transparent"
+      }`}
+    >
       <div className="container-x flex items-center justify-between py-6">
         <a href="#top" className="flex items-center gap-3 text-ivory">
           <Mark />
@@ -206,7 +221,7 @@ function Hero() {
 
 function About() {
   return (
-    <section id="about" className="py-24 md:py-32 bg-background">
+    <section id="about" className="scroll-mt-24 py-24 md:py-32 bg-background">
       <div className="container-x grid lg:grid-cols-12 gap-12 lg:gap-20">
         <div className="lg:col-span-5">
           <p className="eyebrow"><span className="gold-rule" />About the Firm</p>
@@ -252,7 +267,7 @@ function About() {
 
 function Founder() {
   return (
-    <section id="founder" className="py-24 md:py-32 bg-secondary">
+    <section id="founder" className="scroll-mt-24 py-24 md:py-32 bg-secondary">
       <div className="container-x grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
         <div className="lg:col-span-5">
           <div className="relative">
@@ -274,7 +289,7 @@ function Founder() {
             <p>
               Yonnic Land founded Nicene Investments to build a multifamily platform defined by
               operational rigor and investor alignment. His career spans acquisitions, asset
-              management, and value-add repositioning across multiple Sun Belt markets.
+              management, and value-add repositioning across multiple Texas markets.
             </p>
             <p>
               His approach is fundamentals-driven: stress-tested underwriting, conservative
@@ -336,7 +351,7 @@ function Strategy() {
     },
   ];
   return (
-    <section id="strategy" className="py-24 md:py-32 bg-charcoal text-ivory">
+    <section id="strategy" className="scroll-mt-24 py-24 md:py-32 bg-charcoal text-ivory">
       <div className="container-x">
         <div className="max-w-3xl">
           <p className="eyebrow text-gold"><span className="gold-rule" />Investment Strategy</p>
@@ -384,7 +399,7 @@ function Portfolio() {
     },
   ];
   return (
-    <section id="portfolio" className="py-24 md:py-32 bg-background">
+    <section id="portfolio" className="scroll-mt-24 py-24 md:py-32 bg-background">
       <div className="container-x">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8">
           <div className="max-w-2xl">
@@ -495,7 +510,7 @@ function Process() {
     { n: "04", t: "Updates & Distributions", d: "Receive quarterly performance reports and scheduled distributions throughout the hold period." },
   ];
   return (
-    <section id="process" className="py-24 md:py-32 bg-background">
+    <section id="process" className="scroll-mt-24 py-24 md:py-32 bg-background">
       <div className="container-x">
         <div className="max-w-3xl">
           <p className="eyebrow"><span className="gold-rule" />Investor Journey</p>
@@ -526,7 +541,7 @@ function Process() {
 
 function Contact() {
   return (
-    <section id="contact" className="py-24 md:py-32 bg-charcoal text-ivory">
+    <section id="contact" className="scroll-mt-24 py-24 md:py-32 bg-charcoal text-ivory">
       <div className="container-x max-w-2xl">
         <p className="eyebrow text-gold"><span className="gold-rule" />Contact</p>
         <h2 className="mt-5 text-4xl md:text-5xl text-ivory">
