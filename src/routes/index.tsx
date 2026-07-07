@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import {
   ArrowRight,
@@ -13,7 +13,6 @@ import {
   Mail,
   Phone,
   ChevronRight,
-  User,
   ExternalLink,
 } from "lucide-react";
 
@@ -258,16 +257,11 @@ function Founder() {
         <div className="lg:col-span-5">
           <div className="relative">
             <div className="absolute -inset-3 border border-gold/60" aria-hidden />
-            <div
-              role="img"
-              aria-label="Portrait placeholder for Yonnic Land"
-              className="relative w-full aspect-[4/5] bg-secondary border border-border flex flex-col items-center justify-center text-charcoal/40"
-            >
-              <User className="h-24 w-24" strokeWidth={1} />
-              <span className="mt-4 eyebrow text-[0.62rem] text-charcoal/50">
-                Portrait Coming Soon
-              </span>
-            </div>
+            <img
+              src="/YonnicLand.jpeg"
+              alt="Yonnic Land, Founder & Principal of Nicene Investments"
+              className="relative w-full aspect-[4/5] object-cover border border-border"
+            />
           </div>
         </div>
         <div className="lg:col-span-7">
@@ -411,17 +405,12 @@ function Portfolio() {
               key={p.name}
               className="group bg-card border border-border flex flex-col"
             >
-              <div className="relative overflow-hidden aspect-[4/3] bg-secondary flex items-center justify-center">
-                <div
-                  aria-hidden
-                  className="absolute inset-0 opacity-[0.08]"
-                  style={{
-                    backgroundImage:
-                      "linear-gradient(to right, rgba(0,0,0,0.6) 1px, transparent 1px), linear-gradient(to bottom, rgba(0,0,0,0.6) 1px, transparent 1px)",
-                    backgroundSize: "40px 40px",
-                  }}
+              <div className="relative overflow-hidden aspect-[4/3] bg-secondary">
+                <img
+                  src="/heritage-apartments-overhead.jpeg"
+                  alt={`Overhead view of ${p.name} in ${p.market}`}
+                  className="h-full w-full object-cover"
                 />
-                <Building2 className="relative h-20 w-20 text-primary/60" strokeWidth={1} />
                 <span className="absolute top-4 left-4 bg-primary text-primary-foreground text-[0.62rem] tracking-[0.18em] uppercase font-semibold px-3 py-1.5">
                   Owned
                 </span>
@@ -695,18 +684,22 @@ function Footer() {
           <div className="text-[0.62rem] uppercase tracking-[0.22em] text-gold mb-4">Connect</div>
           <ul className="space-y-2 text-sm">
             <li><a href="mailto:invest@niceneinvestments.com" className="hover:text-gold">Email</a></li>
-            <li><a href="#" className="hover:text-gold">LinkedIn</a></li>
-            <li><a href="#" className="hover:text-gold">X / Twitter</a></li>
           </ul>
         </div>
       </div>
 
       <div className="border-t border-ivory/10">
-        <div className="container-x py-8 flex flex-col md:flex-row gap-4 md:items-center md:justify-between text-xs text-ivory/50">
-          <div>© {new Date().getFullYear()} Nicene Investments. All rights reserved.</div>
-          <div className="max-w-3xl leading-relaxed">
-            This website is for informational purposes only and does not constitute an offer to
-            sell securities. All investments involve risk.
+        <div className="container-x py-8 flex flex-col gap-4">
+          <div className="flex flex-col md:flex-row gap-4 md:items-center md:justify-between text-xs text-ivory/50">
+            <div>© {new Date().getFullYear()} Nicene Investments. All rights reserved.</div>
+            <div className="max-w-3xl leading-relaxed">
+              This website is for informational purposes only and does not constitute an offer to
+              sell securities. All investments involve risk.
+            </div>
+          </div>
+          <div className="flex gap-6 text-xs text-ivory/50">
+            <Link to="/privacy" className="hover:text-gold">Privacy Policy</Link>
+            <Link to="/terms" className="hover:text-gold">Terms of Service</Link>
           </div>
         </div>
       </div>
