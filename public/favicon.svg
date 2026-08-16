@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" role="img" aria-label="Nicene Investments home icon">
   <rect width="40" height="40" fill="#141414"/>
-  <rect x="0" y="0" width="40" height="40" fill="none" stroke="#D7A03D" stroke-width="1"/>
+  <rect x="0" y="0" width="40" height="40" fill="none" stroke="#D7A03D" stroke-width="2"/>
   <rect x="5" y="5" width="30" height="30" fill="#A50F11"/>
   <text x="20" y="21" text-anchor="middle" dominant-baseline="middle"
         font-family="Georgia, 'Times New Roman', serif" font-weight="700"
