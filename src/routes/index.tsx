@@ -627,9 +627,12 @@ function Footer() {
               sell securities. All investments involve risk.
             </div>
           </div>
-          <div className="flex gap-6 text-xs text-ivory/50">
-            <Link to="/privacy" className="hover:text-gold">Privacy Policy</Link>
-            <Link to="/terms" className="hover:text-gold">Terms of Service</Link>
+          <div className="flex flex-col md:flex-row gap-4 md:items-center md:justify-between text-xs text-ivory/50">
+            <div className="flex gap-6">
+              <Link to="/privacy" className="hover:text-gold">Privacy Policy</Link>
+              <Link to="/terms" className="hover:text-gold">Terms of Service</Link>
+            </div>
+            <div>Developed by Joshua Austin Land</div>
           </div>
         </div>
       </div>

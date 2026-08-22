@@ -54,19 +54,22 @@ export function LegalLayout({
       </main>
 
       <footer className="bg-charcoal text-ivory/70 border-t border-ivory/10">
-        <div className="container-x py-8 flex flex-col md:flex-row gap-4 md:items-center md:justify-between text-xs text-ivory/50">
-          <div>© {new Date().getFullYear()} Nicene Investments. All rights reserved.</div>
-          <div className="flex gap-6">
-            <Link to="/" className="hover:text-gold">
-              Home
-            </Link>
-            <Link to="/privacy" className="hover:text-gold">
-              Privacy Policy
-            </Link>
-            <Link to="/terms" className="hover:text-gold">
-              Terms of Service
-            </Link>
+        <div className="container-x py-8 flex flex-col gap-4">
+          <div className="flex flex-col md:flex-row gap-4 md:items-center md:justify-between text-xs text-ivory/50">
+            <div>© {new Date().getFullYear()} Nicene Investments. All rights reserved.</div>
+            <div className="flex gap-6">
+              <Link to="/" className="hover:text-gold">
+                Home
+              </Link>
+              <Link to="/privacy" className="hover:text-gold">
+                Privacy Policy
+              </Link>
+              <Link to="/terms" className="hover:text-gold">
+                Terms of Service
+              </Link>
+            </div>
           </div>
+          <div className="text-xs text-ivory/50">Developed by Joshua Austin Land</div>
         </div>
       </footer>
     </div>
